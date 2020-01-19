@@ -24,5 +24,8 @@ __I AM NOT RESPONSIBLE FOR ANY DAMAGE TO YOUR DEVICE__
 * some fonts are probably missing...
 
 # Install
-copy the config-folder to '''~/.config/''':
-'''cp config/* ~/.config/'''
+copy the config-folder to ```~/.config/```
+
+```
+cp config/* ~/.config/
+```
