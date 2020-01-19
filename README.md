@@ -13,7 +13,7 @@ __I AM NOT RESPONSIBLE FOR ANY DAMAGE TO YOUR DEVICE__
 * xautolock
 * feh
 
-###autostart
+### autostart
 * firefox
 * thunderbird
 * telegram-desktop
