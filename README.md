@@ -12,6 +12,7 @@ __I AM NOT RESPONSIBLE FOR ANY DAMAGE TO YOUR DEVICE__
 * rofi
 * xautolock
 * feh
+
 ###autostart
 * firefox
 * thunderbird
