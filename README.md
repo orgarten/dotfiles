@@ -6,21 +6,22 @@ __I AM NOT RESPONSIBLE FOR ANY DAMAGE TO YOUR DEVICE__
 
 # Dependencies
 ## functionality
-i3-gaps
-picom
-polybar
-rofi
-xautolock
-feh
+*i3-gaps
+*picom
+*polybar
+*rofi
+*xautolock
+*feh
 ###autostart
-firefox
-thunderbird
-telegram-desktop
-signal-desktop
+*firefox
+*thunderbird
+*telegram-desktop
+*signal-desktop
 
 # looks
-arc-theme
-ultra-flat-icons-blue
+*arc-theme
+*ultra-flat-icons-blue
+* some fonts are probably missing...
 
 # Install
 copy the config-folder to '''~/.config/''':
