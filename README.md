@@ -1,5 +1,5 @@
-# i3wm-config
-My i3wm configuration.
+# dotfiles
+My configuration files for i3, vim, zsh
 Feel free to use it and change it.
 
 __I AM NOT RESPONSIBLE FOR ANY DAMAGE TO YOUR DEVICE__
@@ -28,6 +28,8 @@ __I AM NOT RESPONSIBLE FOR ANY DAMAGE TO YOUR DEVICE__
 ## vim
 * vim-airline
 * vim-airline-themes
+* vimtex
+* vim-fugitive
 
 # Install
 copy the config-folder to ```~/.config/```
