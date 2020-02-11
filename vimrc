@@ -8,7 +8,15 @@ filetype off
   
 " Turn on syntax highlighting.
 syntax on
-  
+ 
+" keybinding
+" tabs
+map <F2> :NERDTreeToggle<CR>
+map <C-N> :tabnext <CR>
+map <C-M> :tabprevious <CR>
+
+" vimtex keybind
+map <F9> :w <bar> VimtexCompileSS <CR>
 " For plug-ins to load correctly.
 filetype plugin indent on
  
@@ -29,15 +37,12 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " tex configuration
 let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
 
-" syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" enable GitGutter
+let g:gitgutter_enabled = 1
+let g:gitgutter_signs = 1
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
