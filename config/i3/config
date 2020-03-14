@@ -38,8 +38,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -126,6 +126,16 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+set $ws20 "20"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -138,6 +148,17 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+bindsym $mod+F1 workspace number $ws11
+bindsym $mod+F2 workspace number $ws12
+bindsym $mod+F3 workspace number $ws13
+bindsym $mod+F4 workspace number $ws14
+bindsym $mod+F5 workspace number $ws15
+bindsym $mod+F6 workspace number $ws16
+bindsym $mod+F7 workspace number $ws17
+bindsym $mod+F8 workspace number $ws18
+bindsym $mod+F9 workspace number $ws19
+bindsym $mod+F10 workspace number $ws20
+
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -150,11 +171,18 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+F1 move container to workspace number $ws11
+bindsym $mod+Shift+F2 move container to workspace number $ws12
+bindsym $mod+Shift+F3 move container to workspace number $ws13
+bindsym $mod+Shift+F4 move container to workspace number $ws14
+bindsym $mod+Shift+F5 move container to workspace number $ws15
+bindsym $mod+Shift+F6 move container to workspace number $ws16
+bindsym $mod+Shift+F7 move container to workspace number $ws17
+bindsym $mod+Shift+F8 move container to workspace number $ws18
+bindsym $mod+Shift+F9 move container to workspace number $ws19
+bindsym $mod+Shift+F10 move container to workspace number $ws20
 
-# Edit i3 conf
-bindsym $mod+F10 exec code $HOME/.config/i3/config
-# Edit polybar conf
-bindsym $mod+F9 exec code $HOME/.config/polybar/config
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -189,12 +217,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+
 # gaps
 for_window [class=".*"] border pixel 0
 gaps inner 5
 gaps outer 0
 smart_gaps on
 smart_borders on
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
@@ -208,12 +239,10 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # shutdown, reboot and lock screen
 set $Locker i3lock && sleep 1
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (e) logout, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
 
@@ -223,6 +252,16 @@ mode "$mode_system" {
 }
 
 bindsym $mod+End mode "$mode_system"
+
+# lock on ctrl+alt+l
+bindsym Mod1+Ctrl+l exec "i3lock -t -i .backgrounds/lock.png"
+
+# move workspace between monitors
+bindsym $mod+x move workspace to output right
+bindsym $mod+Shift+x move workspace to output left 
+
+# keybinding for often used programs
+bindsym $mod+b exec firefox
 
 # floating for about dialogs
 for_window [window_role="(?i)About"] floating enable
@@ -242,10 +281,16 @@ for_window [class="(?i)galculator"] floating enable
 exec --no-startup-id "picom -b"
 
 # set wallpaper
-exec --no-startup-id "feh --bg-fill /home/orell/.backgrounds/bg.jpg"
+exec_always --no-startup-id "feh --bg-fill /home/ogarten/.backgrounds/bg.png"
+
+# multimonitor support
+workspace 1 output DP-2-3 
+workspace 2 output DP-2-2
+#workspace 3 output DP-2-2
+workspace 10 output eDP-1
 
 # set autolock
-exec --no-startup-id "xautolock -locker i3lock -time 5"
+exec --no-startup-id "xautolock -locker 'i3lock -t -i .backgrounds/lock.png' -time 10"
 
 # autostart
 # start terminal on workspace 3
@@ -254,7 +299,7 @@ exec --no-startup-id "xautolock -locker i3lock -time 5"
 # start thunderbird on workspace 2
 
 exec i3-msg 'workspace 1; exec firefox'
-exec i3-msg 'workspace 2; exec thunderbird'
-exec i3-msg 'workspace 3; exec i3-sensible-terminal'
-exec i3-msg 'workspace 4; exec telegram-desktop'
-exec i3-msg 'workspace 4; exec signal-desktop'
+#exec i3-msg 'workspace 2; exec telegram-desktop'
+#exec i3-msg 'workspace 2; exec signal-desktop'
+exec i3-msg 'workspace 2; exec i3-sensible-terminal'
+exec i3-msg 'workspace 10; exec thunderbird'
