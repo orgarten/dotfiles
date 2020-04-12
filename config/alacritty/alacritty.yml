@@ -34,9 +34,9 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
+  padding:
+    x: 0
+    y: 5
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -101,7 +101,7 @@ font:
     family: DejaVu Sans Mono
 
     # The `style` can be specified to pick a specific face.
-    #style: Regular
+    #style: Book
 
   # Bold font face
   #bold:
@@ -171,12 +171,85 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
+
+#Colors (Tango)
+schemes:
+  tango: &tango
+    primary:
+      background: '#212526'
+      foreground: '#eaeaea'
+
+    # Normal colors
+    normal:
+      black:   '#2e3436'
+      red:     '#cc0000'
+      green:   '#73d216'
+      yellow:  '#edd400'
+      blue:    '#3465a4'
+      magenta: '#75507b'
+      cyan:    '#06989a'
+      white:   '#d3d7cf'
+ 
+    # Bright colors
+    bright:
+      black:   '#2e3436'
+      red:     '#ef2929'
+      green:   '#8ae234'
+      yellow:  '#fce94f'
+      blue:    '#729fcf'
+      magenta: '#ad7fa8'
+      cyan:    '#34e2e2'
+      white:   '#eeeeec'
+  breeze: &breeze
+    # Default colors
+    primary:
+      background: '#232627'
+      #foreground: '#fcfcfc'
+      foreground: '#000000' 
+      dim_foreground: '#eff0f1'
+      bright_foreground: '#ffffff'
+      dim_background: '#31363b'
+      bright_background: '#000000'
+
+    # Normal colors
+    normal:
+      black: '#232627'
+      red: '#ed1515'
+      green: '#11d116'
+      yellow: '#f67400'
+      blue: '#1d99f3'
+      magenta: '#9b59b6'
+      cyan: '#1abc9c'
+      white: '#fcfcfc'
+
+    # Bright colors
+    bright:
+      black: '#7f8c8d'
+      red: '#c0392b'
+      green: '#1cdc9a'
+      yellow: '#fdbc4b'
+      blue: '#3daee9'
+      magenta: '#8e44ad'
+      cyan: '#16a085'
+      white: '#ffffff'
+
+    # Dim colors
+    dim:
+      black: '#31363b'
+      red: '#783228'
+      green: '#17a262'
+      yellow: '#b65619'
+      blue: '#1b668f'
+      magenta: '#614a73'
+      cyan: '#186c60'
+      white: '#63686d'
+    
 # Colors (Tomorrow Night Bright)
-colors:
+colors: *tango
   # Default colors
-  primary:
-    background: '#212526'
-    foreground: '#eaeaea'
+  #primary:
+  #  background: '#212526'
+  #  foreground: '#eaeaea'
 
     # Bright and dim foreground colors
     #
@@ -222,7 +295,7 @@ colors:
   #  yellow:  '#e7c547'
   #  blue:    '#7aa6da'
   #  magenta: '#b77ee0'
-  #  cyan:    '#54ced6'
+  # cyan:    '#54ced6'
   #  white:   '#ffffff'
 
   # Dim colors
