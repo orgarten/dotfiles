@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='mvim'
+   export EDITOR='vim'
  fi
 
 # Compilation flags
@@ -112,5 +112,12 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 MAKEFLAGS="-j$(nproc)"
 export MAKEFLAGS
 
-# run neofetch
-neofetch
+screenshot () {
+    grim -g "$(slurp)" - | wl-copy
+}
+screenshot_file() {
+    grim -g "$(slurp)" $1
+}
+
+# run pfetch
+pfetch
