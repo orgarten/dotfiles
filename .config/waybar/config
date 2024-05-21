@@ -8,7 +8,7 @@
     "margin-right": 3,
     "modules-left": ["memory", "cpu", "temperature", "backlight"],
     "modules-center": ["idle_inhibitor"],
-    "modules-right": ["battery", "battery#bat2", "network"],
+    "modules-right": ["battery", "network"],
     "idle_inhibitor": {
         "format": "{icon}",
         //"format-icons": {
@@ -21,24 +21,24 @@
         }
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}% 🧮",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% 📝"
     },
     "temperature": {
         // "thermal-zone": 2,
-        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["🧊", "🌡", "🔥"]
     },
     "backlight": {
-        "device": "amdgpu_bl0",
+        "device": "intel_backlight",
         "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
+        "format-icons": ["🌑", "🌒", "🌓", "🌔", "🌕"]
     },
     "battery": {
         "bat": "BAT0",
@@ -48,40 +48,20 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat2": {
-        "bat": "BAT1",
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% 🔌",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        "interface": "wlp3s0", // (Optional) To force the use of this interface
+        "interface": "wlp0s20f3", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%)   {ipaddr} - {frequency} GHz",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "on-click-right": "nm-connection-editor",
-    },
-    "backlight": {
-        "device": "amdgpu_bl0",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
     },
 },
 {
@@ -93,25 +73,25 @@
     "margin-left": 3,
     "margin-right": 3,
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
-    "modules-center": ["clock"], //"sway/window"],
-    "modules-right": [ "pulseaudio", "tray"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["pulseaudio", "tray", "clock"],
     // Modules configuration
     "sway/workspaces": {
          "all-outputs": false,
-         "format": "{name}",
+         "format": "{icon} {name}",
          "format-icons": {
-             "1": "🌎",
-             "2": "",
-             "3": "",
-             "20": "📧",
+	     "default": "",	
              "urgent": "",
-             "focused": "",
-             //"default": ""
          }
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/window": {
+	"format": "[{app_id} | {shell}]: {title}",
+	"all-outputs": true,
+	"max-length": 100
     },
      "tray": {
         // "icon-size": 21,
@@ -128,31 +108,19 @@
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-bluetooth-muted": "🔇 {icon} {format_source}",
+        "format-muted": "🔇 {format_source}",
+        "format-source": "{volume}% 🎙",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+            "headphone": "🎧",
+            "hands-free": "🎧",
+            "headset": "🎧",
+            "phone": "📱",
+            "portable": "📱",
+            "car": "🚗",
+            "default": ["🔊", "🔉", "🔈"]
         },
         "on-click": "pavucontrol"
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }
 }]

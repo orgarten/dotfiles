@@ -16,7 +16,7 @@ export MOZ_DBUS_REMOTE=1
 export QT_QPA_PLATFORM=wayland
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 if [ "$(tty)" = "/dev/tty1" ]; then
     exec sway

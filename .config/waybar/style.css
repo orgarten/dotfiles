@@ -39,10 +39,10 @@ window#waybar.termite {
     background-color: #3F3F3F;
 }
 
-window#waybar.chromium {
+/*window#waybar.chromium {
     background-color: #000000;
     border: none;
-}
+}*/
 
 #workspaces {
     background-color: #64727D;

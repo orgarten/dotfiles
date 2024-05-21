@@ -105,7 +105,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # run syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 #eval ssh-agent -s
 

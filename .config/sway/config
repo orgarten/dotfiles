@@ -47,8 +47,10 @@ output * bg ~/.backgrounds/$bg_image fill
 #output HDMI-A-2 pos 1920 0 res 3840x2160
 #output HDMI-A-2 scale 1.2
 
+
+output $laptop scale 1.35
 output $external pos 0 0 res 3840x2160
-output $laptop pos 3840 540 res 1920x1080
+output $laptop pos 3840 540 res 2880x1800
 
 #output HDMI-A-1 pos 0 0 res 1920x1080
 #output $laptop pos 1920 0 res 1920x1080
@@ -341,8 +343,8 @@ client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Nordic' #'Arc-Darker'
-    gsettings set $gnome-schema icon-theme 'Ultra-Flat' #YltraFlatMajestic'
+    gsettings set $gnome-schema gtk-theme 'Bubble-Dark' #'Nordic' #'Arc-Darker'
+    gsettings set $gnome-schema icon-theme 'Tela-circle' #YltraFlatMajestic'
     gsettings set $gnome-schema font-name 'DejaVu Sans Book 10'
     #gsettings set $gnome-schema cursor-theme 'phinger-cursors'
     #gsettings set $gnome-schema cursor-size 32
