@@ -7,19 +7,8 @@
     "margin-left": 3,
     "margin-right": 3,
     "modules-left": ["memory", "cpu", "temperature", "backlight"],
-    "modules-center": ["idle_inhibitor"],
-    "modules-right": ["battery", "network"],
-    "idle_inhibitor": {
-        "format": "{icon}",
-        //"format-icons": {
-        //    "activated": "",
-        //    "deactivated": ""
-        // }
-        "format-icons": {
-            "activated": "🙉",
-            "deactivated": "🙈"
-        }
-    },
+    "modules-center": ["clock"],
+    "modules-right": ["bluetooth", "battery", "network"],
     "cpu": {
         "format": "{usage}% 🧮",
         "tooltip": false
@@ -28,12 +17,19 @@
         "format": "{}% 📝"
     },
     "temperature": {
-        // "thermal-zone": 2,
-        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+        "thermal-zone": 10,
+        // "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["🧊", "🌡", "🔥"]
+        "format-icons": ["🟢", "🟢", "🟢", "🔴"]
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "format": "{:%H:%M:%S - %A, %d %B %Y}",
+        "interval": 1,
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
     },
     "backlight": {
         "device": "intel_backlight",
@@ -63,6 +59,11 @@
         "format-disconnected": "Disconnected ⚠",
         "on-click-right": "nm-connection-editor",
     },
+    "bluetooth": {
+        "format": "{status}",
+        "format-connected": "{num_connections} connected", 
+        "format-connected-battery": "{device_alias} [{device_battery_percentage}%]"
+    },
 },
 {
     "layer": "top", // Waybar at top layer
@@ -75,7 +76,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "tray", "clock"],
+    "modules-right": ["keyboard-state", "idle_inhibitor", "pulseaudio", "tray"],
     // Modules configuration
     "sway/workspaces": {
          "all-outputs": false,
@@ -93,16 +94,30 @@
 	"all-outputs": true,
 	"max-length": 100
     },
-     "tray": {
+    "idle_inhibitor": {
+        "format": "{icon}",
+        //"format-icons": {
+        //    "activated": "",
+        //    "deactivated": ""
+        // }
+        "format-icons": {
+            "activated": "🙉",
+            "deactivated": "🙈"
+        }
+    },
+    "keyboard-state": {
+        "capslock": true,
+        "format": {
+            "capslock": "C: {icon}",
+        },
+        "format-icons": {
+            "locked": "🟡",
+            "unlocked": "⚫",
+        },
+    },
+    "tray": {
         // "icon-size": 21,
         "spacing": 10
-    },
-    "clock": {
-        // "timezone": "America/New_York",
-        "format": "{:%H:%M:%S - %A, %d %B %Y}",
-        "interval": 1,
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float

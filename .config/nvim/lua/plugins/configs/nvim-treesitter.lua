@@ -6,7 +6,7 @@ if not present then
 end
 
 treesitter.setup({
-    ensure_installed = {"c", "cpp", "lua", "python", "rust", "latex", "javascript"},
+    ensure_installed = {"c", "cpp", "lua", "python", "rust", "javascript"},
     sync_install = false,
     auto_install = true,
     highlight = {

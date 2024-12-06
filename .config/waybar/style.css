@@ -79,6 +79,8 @@ window#waybar.termite {
 
 #clock,
 #battery,
+#bluetooth,
+#keyboard-state,
 #cpu,
 #memory,
 #temperature,
@@ -120,6 +122,14 @@ window#waybar.termite {
         background-color: #ffffff;
         color: #000000;
     }
+}
+
+#bluetooth {
+    background-color: #26A65B
+}
+
+#bluetooth.off {
+    background-color: transparent
 }
 
 #battery.critical:not(.charging) {
@@ -191,6 +201,11 @@ label:focus {
 
 #tray {
     background-color: #2980b9;
+}
+
+#keyboard-state {
+    padding: 0px 10px 0px 10px;
+    background-color: #2d3436;
 }
 
 #idle_inhibitor {
