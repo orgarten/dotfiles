@@ -34,14 +34,8 @@ done
 
 
 if [ "$(tty)" = "/dev/tty1" ]; then
-    exec sway
+    exec sway |& tee /home/orell/sway.log
     exec thunar --daemon
 fi
-
-if [ "$(tty)" = "/dev/tty2" ]; then
-    exec Hyprland
-    exec thunar --daemon
-fi
-
 
 

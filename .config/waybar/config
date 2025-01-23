@@ -52,7 +52,7 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        "interface": "wlp0s20f3", // (Optional) To force the use of this interface
+        "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%)   {ipaddr} - {frequency} GHz",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",

@@ -19,23 +19,22 @@ return require('packer').startup(function(use)
 
     -- NvimTree
     use {
-        'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
-        tag = 'nightly'
+        'nvim-tree/nvim-tree.lua',
+        requires = 'nvim-tree/nvim-web-devicons',
     }
 
 
     -- lualine status line
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
     
     -- display a bufferline
     use {
         "akinsho/bufferline.nvim",
-        tag = "v2.*",
-        requires = "kyazdani42/nvim-web-devicons"
+        tag = "v4.*",
+        requires = "nvim-tree/nvim-web-devicons"
     }
 
     -- use treesitter for language parsing

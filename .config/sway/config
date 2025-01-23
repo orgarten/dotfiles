@@ -17,7 +17,9 @@ set $right odiaeresis
 set $term kitty #alacritty
 
 set $laptop eDP-1
-set $external DP-1
+# set $external DP-5
+set $external "Dell Inc. DELL U4025QW 8HZXJ04" 
+#DP-1
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -28,8 +30,8 @@ set $runner wofi --show run
 
 #set $bg_image bg_HK_sign.jpg
 #set $lock_image bg_HK_sign_blurred.jpg
-set $bg_image bg_retrowave.jpg
-set $lock_image bg_retrowave_blurred.jpg
+set $bg_image bg_cityscape.jpg
+set $lock_image bg_cityscape_blur.jpg
 
 ### Output configuration
 #
@@ -47,13 +49,16 @@ output * bg ~/.backgrounds/$bg_image fill
 #output HDMI-A-2 pos 1920 0 res 3840x2160
 #output HDMI-A-2 scale 1.2
 
-
 output $laptop scale 1.35
-#output $external pos 0 0 res 5120x2160
 #output $laptop pos 5120 540 res 2880x1800
+#output DP-2 pos 0 0 res 5120x2160
+#output DP-3 pos 0 0 res 5120x2160
+#output DP-4 pos 0 0 res 5120x2160
+#output DP-5 pos 0 0 res 5120x2160
+#output DP-6 pos 0 0 res 5120x2160
 
-output DP-6 pos 0 0 res 2560x1440
-output DP-5 pos 2560 0 res 1920x1080 
+#output DP-6 pos 0 0 res 2560x1440
+#output DP-5 pos 2560 0 res 1920x1080 
 
 #output HDMI-A-1 pos 0 0 res 1920x1080
 #output $laptop pos 1920 0 res 1920x1080
@@ -96,7 +101,7 @@ exec swayidle -w timeout 600 'swaylock -f -i ~/.backgrounds/$lock_image -s fill'
 
 input type:keyboard {
     xkb_layout de,us
-    xkb_variant nodeadkeys,intl
+    xkb_variant nodeadkeys,altgr-intl
     xkb_model "pc105" 
     xkb_options grp:ctrls_toggle
 }
